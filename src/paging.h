@@ -1,3 +1,10 @@
+/*
+ * paging.h
+ *
+ *  Created on: 01-Aug-2019
+ *      Author: sharath
+ */
+
 #include<iostream>
 #include<sstream>
 #include<list>
@@ -15,7 +22,6 @@ void keyhandle(unsigned char, int, int);
 
 void frame_selection(int);
 void move_page(int);
-
 
 void control_cb(int);
 void draw_rectangle(float, float, float, float);
