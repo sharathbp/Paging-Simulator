@@ -1,5 +1,5 @@
 # Paging-Simulator
-
+![page](https://user-images.githubusercontent.com/32369302/67702055-13fad000-f9d7-11e9-9f99-2eaa20c81928.JPG)
 An OpenGL application that demonstrate various paging algorithm such as FIFO, LRU and Optimal Page Replacement.
 
 ## Requirements
