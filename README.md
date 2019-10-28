@@ -21,7 +21,7 @@ For Ubuntu :
  - sudo apt install freeglut3 freeglut3-dev 
  - sudo apt install libglui2c2 libglui-dev             
 
-Tested on Ubuntu, Visual Studio, Mingw
+Tested on Ubuntu (gcc), Visual Studio (vc++) and MinGW Compiler
 
 ## Build commands
 
