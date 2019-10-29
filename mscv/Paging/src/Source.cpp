@@ -1,3 +1,10 @@
+/*
+ * Source.cpp
+ *
+ *  Created on: 01-Aug-2019
+ *      Author: sharath
+ */
+
 #include "paging.h"
 #pragma warning(disable : 4996)
 #define RECT_WIDTH 30
@@ -24,7 +31,7 @@ struct coord *dest, *dest_copy;
 int example[20] = { 1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6 };
 int ref_id[20] = {1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6};
 int n=20, max_index=0, frm_counter=0;
-int time[20], page_fault = 0, choice = 2, k=0, curr = -1, hit=-1;
+int time1[20], page_fault = 0, choice = 2, k=0, curr = -1, hit=-1;
 bool moving = false, frm_count_start = false, page_hit[20] = { false };
 char hr[5];
 int   main_window;
@@ -137,9 +144,9 @@ void init() {
 	for (int i = 0; i < n;i++)
 		page_hit[i] = false;
 	
-	//Initialize time
+	//Initialize time1
 	for (int i = 0;i < no_frame;i++) {
-		time[i] = no_frame - i;
+		time1[i] = no_frame - i;
 	}
 
 	// Initilize Secondary storage (pages)
@@ -504,7 +511,7 @@ void frame_selection(int value) {
 	if (frm_counter < no_frame) {
 		glutPostRedisplay();
 		
-		if (time[frm_counter] > time[max_index])
+		if (time1[frm_counter] > time1[max_index])
 			max_index = frm_counter;
 		frm_counter++;
 		//cout << "frame counter max " << max_index << endl;
@@ -612,8 +619,8 @@ void swap_in() {
 	max_index = 0;
 	int i;
 	for (i = 0;i < no_frame;i++) {
-		time[i]++;
-		if (time[i] > time[max_index])
+		time1[i]++;
+		if (time1[i] > time1[max_index])
 			max_index = i;
 	}
 
@@ -629,7 +636,7 @@ void swap_in() {
 			// page miss
 			hit = -1;
 			page_hit[k] = false;
-			time[max_index] = 1;
+			time1[max_index] = 1;
 			curr = max_index;
 			for (i = 0;i < no_frame;i++) {
 				page_table[i][k].x = page_table[i][k - 1].x + 12;
@@ -646,7 +653,7 @@ void swap_in() {
 			hit = i;
 			page_hit[k] = true;
 			if (choice == 2)
-				time[i] = 1;
+				time1[i] = 1;
 			curr = -1;
 			for (i = 0;i < no_frame;i++) {
 				page_table[i][k].x = page_table[i][k - 1].x + 12;
@@ -658,7 +665,7 @@ void swap_in() {
 	}
 	else {
 		page_hit[k] = false;
-		time[max_index] = 1;
+		time1[max_index] = 1;
 		curr = max_index;
 		page_table[0][k].x = 50;
 		page_table[0][k].y = 110;
@@ -741,7 +748,7 @@ void swap_in2(){
 	}
 	else {
 		page_hit[k] = false;
-		time[max_index] = 1;
+		time1[max_index] = 1;
 		curr = 0;
 		page_table[0][k].x = 50;
 		page_table[0][k].y = 110;
