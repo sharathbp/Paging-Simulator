@@ -238,6 +238,7 @@ void control_cb(int control)
 		edittext->disable();
 		play->disable();
 		restart->enable();
+		SetCursorPos(400, 500);
 		glutPostRedisplay();
 		break;
 	case 4: if (error)
