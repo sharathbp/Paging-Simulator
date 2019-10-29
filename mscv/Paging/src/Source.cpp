@@ -89,7 +89,7 @@ int main(int argc, char** argv) {
 	edittext->set_alignment(GLUI_ALIGN_LEFT);
 	glui->add_statictext_to_panel(ref_ids, "");
 	errortext = glui->add_statictext_to_panel(ref_ids, "Invalid input");
-	errortext->disable();
+	errortext->hidden=true;
 	errortext->set_alignment(GLUI_ALIGN_CENTER);
 	glui->add_statictext("");
 	glui->add_statictext("");
@@ -194,11 +194,11 @@ void control_cb(int control)
 
 		}
 		if (error) {
-			errortext->enable();
+			errortext->hidden=false;
 			break;
 		}
 		else {
-			errortext->disable();
+			errortext->hidden=true;
 			n = i;
 		}
 		if (n == 0) {
@@ -219,11 +219,11 @@ void control_cb(int control)
 			}
 		}
 		if (error) {
-			errortext->enable();
+			errortext->hidden=false;
 			break;
 		}
 		else {
-			errortext->disable();
+			errortext->hidden=true;
 			n = i;
 		}
 		if (n == 0) {
