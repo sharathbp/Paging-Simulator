@@ -31,7 +31,7 @@ struct coord *dest, *dest_copy;
 int example[20] = { 1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6 };
 int ref_id[20] = {1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6};
 int n=20, max_index=0, frm_counter=0;
-int time1[20], page_fault = 0, choice = 2, k=0, curr = -1, hit=-1;
+int time1[20], page_fault = 0, choice = 1, k=0, curr = -1, hit=-1;
 bool moving = false, frm_count_start = false, page_hit[20] = { false };
 char hr[5];
 int   main_window;
@@ -131,7 +131,7 @@ int main(int argc, char** argv) {
 void init() {
 
 	max_index = 0; frm_counter = 0;
-	page_fault = 0; choice = 1; k = 0; curr = -1; hit = -1;
+	page_fault = 0; k = 0; curr = -1; hit = -1;
 	for(int i=0;i<n;i++)
 		for (int j = 0;j < no_frame;j++)
 		page_table[j][i].empty = true;
@@ -745,7 +745,6 @@ void swap_in2(){
 		page_table[curr][k].page_no = ref_id[k];
 		page_table[curr][k].empty = false;
 		page_fault++;
-		printf("cuurr %d\n", curr);
 	}
 	else {
 		page_hit[k] = false;
