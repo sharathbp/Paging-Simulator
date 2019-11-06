@@ -30,10 +30,10 @@ struct coord *dest, *dest_copy;
 
 //////////////////////////////////////////////////////////////////////////
 int example[20] = { 1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6 };
-int ref_id[20] = {1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6};
+int ref_id[30] = {1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6};
 int n=20, max_index=0, frm_counter=0;
-int time1[20], page_fault = 0, choice = 1, k=0, curr = -1, hit=-1;
-bool moving = false, frm_count_start = false, page_hit[20] = { false };
+int time1[30], page_fault = 0, choice = 1, k=0, curr = -1, hit=-1;
+bool moving = false, frm_count_start = false, page_hit[30] = { false };
 char hr[5];
 int   main_window;
 bool start = false;
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
 	glui->add_statictext("");
 
 	/**********Enter reference id **********/
-	GLUI_Panel* ref_ids = new  GLUI_Panel(glui, "Reference ID");
+	GLUI_Panel* ref_ids = new  GLUI_Panel(glui, "Reference ID (Max len: 30)");
 	edittext = glui->add_edittext_to_panel(ref_ids, "Ref_id(0-9)", 1, 0, 2, control_cb);
 	edittext->set_w(160);
 	edittext->set_h(20);
@@ -201,6 +201,8 @@ void control_cb(int control)
 		else {
 			errortext->hidden = true;
 			n = i;
+			if(n > 30)
+				n = 30;
 		}
 		if (n == 0) {
 			n = 20;
@@ -226,6 +228,8 @@ void control_cb(int control)
 		else {
 			errortext->hidden = true;
 			n = i;
+			if(n > 30)
+				n = 30;
 		}
 		if (n == 0) {
 			n = 20;
