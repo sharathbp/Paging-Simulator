@@ -180,6 +180,7 @@ void control_cb(int control)
 	case 0: choice = radio->get_int_val();
 		choice += 1;break;
 	case 1: no_frame = spinner->get_int_val();
+			init();
 			glutPostRedisplay();
 			break;
 	case 2: 
