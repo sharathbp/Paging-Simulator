@@ -243,6 +243,7 @@ void control_cb(int control)
 		play->disable();
 		restart->enable();
 		SetCursorPos(400, 500);
+		init();
 		glutPostRedisplay();
 		break;
 	case 4: if (error)
